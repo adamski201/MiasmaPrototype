@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private float speed;
+    [SerializeField] private int health = 100;
     private GameObject player;
-    public float speed;
-    public int health = 100;
     private Rigidbody2D rb;
     private Vector2 direction;
 

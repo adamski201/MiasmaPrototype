@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ShootPistol : MonoBehaviour
 {
-    public Transform firePoint;
-    public float range = 10f;
-    public int damage = 20;
-    public float recoilTime = 1.5f;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float range = 10f, recoilTime = 1.5f;
+    [SerializeField] private int damage = 20;
     private bool recoil = false;
 
     // Update is called once per frame
