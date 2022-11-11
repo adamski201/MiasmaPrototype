@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 800360242}
   - component: {fileID: 800360241}
   - component: {fileID: 800360243}
+  - component: {fileID: 800360244}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -360,6 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  health: 100
 --- !u!114 &800360243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +374,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb2cd662fd0e074e930b5696c4065ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &800360244
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800360237}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2}
+  m_EdgeRadius: 0
 --- !u!1001 &1062266280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -426,6 +454,10 @@ PrefabInstance:
     - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419977924007821231, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
