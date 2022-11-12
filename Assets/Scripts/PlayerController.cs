@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static int health;
+    public static int health = 100;
     [SerializeField] private float speed, knockbackDuration, knockbackPower = 10;
     private Rigidbody2D rb;
     private Vector2 moveDirection, knockbackDirection;
