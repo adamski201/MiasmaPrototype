@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed, knockbackDuration, knockbackPower = 10;
     [SerializeField] private int health;
     private Rigidbody2D rb;
-    private Vector2 direction;
+    private Vector2 moveDirection, knockbackDirection;
+    private bool knockedBack = false;
+
 
 
     // Start is called before the first frame update
@@ -22,12 +24,18 @@ public class PlayerController : MonoBehaviour
         float directionX = Input.GetAxisRaw("Horizontal");
         float directionY = Input.GetAxisRaw("Vertical");
 
-        direction = new Vector2(directionX, directionY).normalized;
+        moveDirection = new Vector2(directionX, directionY).normalized;
     }
 
     private void FixedUpdate() 
     {
-        rb.velocity = direction * speed;   
+        if (knockedBack)
+        {
+            rb.AddForce(knockbackDirection * knockbackPower, ForceMode2D.Impulse);
+        } else 
+        {
+            rb.velocity = moveDirection * speed;  
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) 
@@ -52,15 +60,11 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Knockback(float duration, Transform EnemyTransform)
     {
-        float timer = 0;
+        knockbackDirection = (this.transform.position - EnemyTransform.position).normalized;
 
-        while (duration > timer)
-        {
-            timer += Time.deltaTime;
-            Vector2 direction = (EnemyTransform.position - this.transform.position).normalized;
-            rb.AddForce(-direction * knockbackPower);
-        }
-
-        yield return 0;
+        knockedBack = true;
+        yield return new WaitForSeconds(knockbackDuration);
+        knockedBack = false;
+        yield return null;
     } 
 }
