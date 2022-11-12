@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed, knockbackDuration, knockbackPower = 10;
     [SerializeField] private int health;
     private Rigidbody2D rb;
     private Vector2 direction;
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
         if (enemy)
         {
             TakeDamage(enemy.damage);
+            StartCoroutine(Knockback(knockbackDuration, collision.transform));
         }
     }
 
@@ -48,4 +49,18 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over");
         }
     }
+
+    private IEnumerator Knockback(float duration, Transform EnemyTransform)
+    {
+        float timer = 0;
+
+        while (duration > timer)
+        {
+            timer += Time.deltaTime;
+            Vector2 direction = (EnemyTransform.position - this.transform.position).normalized;
+            rb.AddForce(-direction * knockbackPower);
+        }
+
+        yield return 0;
+    } 
 }
