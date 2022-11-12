@@ -361,6 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  knockbackDuration: 1.5
+  knockbackPower: 30
   health: 100
 --- !u!114 &800360243
 MonoBehaviour:
