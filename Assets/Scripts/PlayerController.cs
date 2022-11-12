@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static int health;
     [SerializeField] private float speed, knockbackDuration, knockbackPower = 10;
-    [SerializeField] private int health;
     private Rigidbody2D rb;
     private Vector2 moveDirection, knockbackDirection;
     private bool knockedBack = false;
