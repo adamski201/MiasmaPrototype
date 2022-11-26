@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class Aim : MonoBehaviour
 {
-    private Transform aimTransform;
-
-    private void Awake() 
-    {
-        aimTransform = transform.Find("Aim");
-    }
+    [SerializeField] private Transform aimTransform;
 
     private void Update()
     {
