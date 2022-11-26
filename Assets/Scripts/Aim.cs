@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AimWeapon : MonoBehaviour
+public class Aim : MonoBehaviour
 {
     private Transform aimTransform;
 
