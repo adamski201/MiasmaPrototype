@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OreMineable : ToolHittable
+public class OreMineable : ResourceGatherable
 {
-    public override void Hit()
+    public override void Hit(float damage)
     {
-        Destroy(gameObject);
+        base.Hit(damage);
     }
 }
