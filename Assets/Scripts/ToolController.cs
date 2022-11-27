@@ -28,6 +28,7 @@ public class ToolController : MonoBehaviour
                 if (ore)
                 {
                     ore.Hit(damage);
+                    Debug.Log(Vector2.Distance(aimPoint.position, ore.transform.position));
                     wait = true;
                     Invoke("resetWaitTime", waitTime);
                 }

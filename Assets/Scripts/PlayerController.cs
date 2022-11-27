@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static int health = 100;
+    public static int oreCount = 0;
     [SerializeField] private float speed, knockbackDuration, knockbackPower = 10;
     private Rigidbody2D rb;
     private Vector2 moveDirection, knockbackDirection;
@@ -67,4 +68,12 @@ public class PlayerController : MonoBehaviour
         knockedBack = false;
         yield return null;
     } 
+
+    public void GainResource(string resource)
+    {
+        if (resource == "Ore Nugget")
+        {
+            oreCount++;
+        }
+    }
 }
