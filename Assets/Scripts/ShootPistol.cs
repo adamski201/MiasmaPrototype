@@ -7,6 +7,7 @@ public class ShootPistol : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private float range = 10f, recoilTime = 1.5f;
     [SerializeField] private int damage = 20;
+    [SerializeField] private int knockbackPower = 2;
     private bool recoil = false;
 
     // Update is called once per frame
@@ -27,15 +28,20 @@ public class ShootPistol : MonoBehaviour
         {
             if (hit)
             {
-                EnemyController zombie = hit.transform.GetComponent<EnemyController>();
-                if (zombie)
-                {
-                    //zombie.TakeDamage(damage);
-                }
+                GameObject hitObject = hit.transform.gameObject;
+                TryHitObject(hitObject);
             }
 
             recoil = true;
             Invoke("resetRecoil", recoilTime);
+        }
+    }
+
+    void TryHitObject(GameObject objectToHit)
+    {
+        if (objectToHit.TryGetComponent(out Hittable hittableObject))
+        {
+            hittableObject.TakeHit(damage, knockbackPower, gameObject.transform.position);
         }
     }
 

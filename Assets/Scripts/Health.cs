@@ -17,5 +17,15 @@ public class Health : MonoBehaviour
     {
         health += amount;
         healthBar.SetHealth(health);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
