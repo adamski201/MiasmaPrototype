@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     private Image healthBar;
-    private int health;
 
     // Start is called before the first frame update
     void Start()
@@ -14,11 +13,8 @@ public class HealthBar : MonoBehaviour
         healthBar = GetComponent<Image>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetHealth(int health)
     {
-        health = PlayerController.health;
-        healthBar.fillAmount = health*1.0f/100;
-        Debug.Log(PlayerController.health);
+        healthBar.fillAmount = health * 1.0f / 100;
     }
 }

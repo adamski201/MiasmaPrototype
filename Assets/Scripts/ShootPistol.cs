@@ -30,7 +30,7 @@ public class ShootPistol : MonoBehaviour
                 EnemyController zombie = hit.transform.GetComponent<EnemyController>();
                 if (zombie)
                 {
-                    zombie.TakeDamage(damage);
+                    //zombie.TakeDamage(damage);
                 }
             }
 
