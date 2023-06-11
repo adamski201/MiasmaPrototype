@@ -11690,6 +11690,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954bba89bb5ffe4438f08e670ef526f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshairTextureArray:
+  - {fileID: 2800000, guid: 8148f113780e9284dacb5708c1781ce6, type: 3}
+  - {fileID: 2800000, guid: 02eb7957e5c2b9e46aa455c030cfc67e, type: 3}
+  - {fileID: 2800000, guid: 02eb7957e5c2b9e46aa455c030cfc67e, type: 3}
+  - {fileID: 2800000, guid: 85cfc2b6ed002a9469d6a4a03f6ac31c, type: 3}
+  - {fileID: 2800000, guid: e657cc4770ec7d54c9ce73a0a88a5c2d, type: 3}
+  - {fileID: 2800000, guid: 6150c3b48cbe38549848443fcee0b1d2, type: 3}
+  - {fileID: 2800000, guid: 8805ebfb71b83d84192b63f1b5f6d6c7, type: 3}
+  - {fileID: 2800000, guid: dd104ebb79847474caaeb4ff337c8deb, type: 3}
+  - {fileID: 2800000, guid: 92cf2d2187d3aaa4d89c59fea3146dc6, type: 3}
+  frameCount: 8
+  frameRate: 0.1
 --- !u!1 &2105767444
 GameObject:
   m_ObjectHideFlags: 0
