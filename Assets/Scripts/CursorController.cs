@@ -7,10 +7,12 @@ public class CursorController : MonoBehaviour
     [SerializeField] private Texture2D[] crosshairTextureArray;
     [SerializeField] private int frameCount;
     [SerializeField] private float recoilTime;
+    [SerializeField] private Transform player;
     private int currentFrame;
     private bool recoil = false;
     private float frameTimer;
     private float animChangeTimer;
+    private float mouseSens = 100;
 
     void Awake()
     {
@@ -23,20 +25,25 @@ public class CursorController : MonoBehaviour
     {
         if (recoil)
         {
-            frameTimer += Time.deltaTime;
-            if (frameTimer >= animChangeTimer)
-            {
-                animChangeTimer += (recoilTime / frameCount);
-                currentFrame += 1;
-                Cursor.SetCursor(crosshairTextureArray[currentFrame]
-                                , new Vector2(crosshairTextureArray[currentFrame].width / 2
-                                , crosshairTextureArray[currentFrame].height / 2), CursorMode.ForceSoftware);
-            }
+            HandleRecoil();
+        }
+    }
 
-            if (frameTimer >= 0)
-            {
-                StopRecoilAnimation();
-            }
+    private void HandleRecoil()
+    {
+        frameTimer += Time.deltaTime;
+        if (frameTimer >= animChangeTimer)
+        {
+            animChangeTimer += (recoilTime / frameCount);
+            currentFrame += 1;
+            Cursor.SetCursor(crosshairTextureArray[currentFrame]
+                            , new Vector2(crosshairTextureArray[currentFrame].width / 2
+                            , crosshairTextureArray[currentFrame].height / 2), CursorMode.ForceSoftware);
+        }
+
+        if (frameTimer >= 0)
+        {
+            StopRecoilAnimation();
         }
     }
 
