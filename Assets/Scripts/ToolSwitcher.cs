@@ -9,7 +9,7 @@ public class ToolSwitcher : MonoBehaviour
 
     private void Start() 
     {
-        selectTool();
+        SelectTool();
     }
 
     private void Update() 
@@ -18,11 +18,11 @@ public class ToolSwitcher : MonoBehaviour
 
         if (selectedTool != lastSelectedTool)
         {
-            selectTool();
+            SelectTool();
         }
     }
 
-    private void selectTool()
+    private void SelectTool()
     {
         int i = 0;
         foreach (Transform tool in transform)

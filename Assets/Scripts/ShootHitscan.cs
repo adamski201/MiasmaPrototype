@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ShootPistol : MonoBehaviour
+public class ShootHitscan : MonoBehaviour
 {
     [SerializeField] private Transform firePoint;
     [SerializeField] private float range = 10f, recoilTime = 0.3f;
@@ -13,7 +13,6 @@ public class ShootPistol : MonoBehaviour
     [SerializeField] private UnityEvent shotFired;
     private float recoilTimer;
 
-    // Update is called once per frame
     void Update()
     {
         // Shoot upon mouse button click.

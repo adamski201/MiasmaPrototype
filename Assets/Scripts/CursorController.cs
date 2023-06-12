@@ -14,13 +14,8 @@ public class CursorController : MonoBehaviour
 
     void Awake()
     {
-
-        Application.targetFrameRate = 144;
-
-        //set the cursor origin to its centre. (default is upper left corner)
+        //Sets cursor to default crosshair
         Vector2 cursorOffset = new Vector2(crosshairTextureArray[0].width / 2, crosshairTextureArray[0].height / 2);
-
-        //Sets the cursor to the Crosshair sprite with given offset 
         Cursor.SetCursor(crosshairTextureArray[0], cursorOffset, CursorMode.ForceSoftware);
     }
 
@@ -63,7 +58,3 @@ public class CursorController : MonoBehaviour
         Cursor.SetCursor(crosshairTextureArray[0], cursorOffset, CursorMode.ForceSoftware);
     }
 }
-
-/*Cursor.SetCursor(crosshairTextureArray[currentFrame]
-                                , new Vector2(crosshairTextureArray[currentFrame].width / 2
-                                , crosshairTextureArray[currentFrame].height / 2), CursorMode.ForceSoftware);*/
