@@ -11160,23 +11160,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1033845918 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1419977924007821224, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-  m_PrefabInstance: {fileID: 1062266280}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1033845930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033845918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ac57d8c23b0194e829ea57eecfc527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1062266280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11562,6 +11545,21 @@ MonoBehaviour:
   recoilTime: 0.3
   damage: 20
   knockbackPower: 4
+  shotFired:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1999346179}
+        m_TargetAssemblyTypeName: CursorController, Assembly-CSharp
+        m_MethodName: StartRecoilAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1566821063
 GameObject:
   m_ObjectHideFlags: 0
@@ -11701,7 +11699,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: dd104ebb79847474caaeb4ff337c8deb, type: 3}
   - {fileID: 2800000, guid: 92cf2d2187d3aaa4d89c59fea3146dc6, type: 3}
   frameCount: 8
-  frameRate: 0.1
+  recoilTime: 0.3
 --- !u!1 &2105767444
 GameObject:
   m_ObjectHideFlags: 0

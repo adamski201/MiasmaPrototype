@@ -1,21 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShootPistol : MonoBehaviour
 {
     [SerializeField] private Transform firePoint;
-    [SerializeField] private float range = 10f, recoilTime = 1.5f;
+    [SerializeField] private float range = 10f, recoilTime = 0.3f;
     [SerializeField] private int damage = 20;
     [SerializeField] private int knockbackPower = 2;
     private bool recoil = false;
+    [SerializeField] private UnityEvent shotFired;
+    private float recoilTimer;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        // Shoot upon mouse button click.
+        if (!recoil)
         {
-            Shoot();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+            }
+        }
+
+        // Check if recoil period is over.
+        if (recoil && Time.time >= recoilTimer)
+        {
+            recoil = false;
         }
     }
 
@@ -24,17 +37,16 @@ public class ShootPistol : MonoBehaviour
         // Handles shooting logic using raycasts
         RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, range);
 
-        if (!recoil)
+        if (hit)
         {
-            if (hit)
-            {
-                GameObject hitObject = hit.transform.gameObject;
-                TryHitObject(hitObject);
-            }
-
-            recoil = true;
-            Invoke("resetRecoil", recoilTime);
+            GameObject hitObject = hit.transform.gameObject;
+            TryHitObject(hitObject);
         }
+
+        recoilTimer = Time.time + recoilTime;
+        recoil = true;
+
+        shotFired.Invoke();
     }
 
     void TryHitObject(GameObject objectToHit)
@@ -43,10 +55,5 @@ public class ShootPistol : MonoBehaviour
         {
             hittableObject.TakeHit(damage, knockbackPower, gameObject.transform.position);
         }
-    }
-
-    private void resetRecoil()
-    {
-        recoil = false;
     }
 }
