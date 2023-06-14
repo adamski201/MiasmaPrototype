@@ -7,13 +7,16 @@ public class ToolController : MonoBehaviour
     [SerializeField] private Transform aimPoint;
     [SerializeField] private float range = 1f, damage = 10f, waitTime = 0.5f;
     private bool wait = false;
+    [SerializeField] private PlayerInput playerInput;
 
-    void Update()
+    private void OnEnable()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            UseTool();
-        }
+        playerInput.onClickEvent += UseTool;
+    }
+
+    private void OnDisable()
+    {
+        playerInput.onClickEvent -= UseTool;
     }
 
     private void UseTool()

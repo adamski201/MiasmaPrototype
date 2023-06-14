@@ -24,21 +24,22 @@ public class PlayerControlMovement : MonoBehaviour
     private CharacterMovement characterMovement;
     private bool isMoving;
     private Rigidbody2D rb;
+    private PlayerInput playerInput;
 
     private void Awake()
     {
+        playerInput = GetComponent<PlayerInput>();
         characterMovement = GetComponent<CharacterMovement>();
         rb = GetComponent<Rigidbody2D>();
     }
+
     void FixedUpdate()
     {
-        float directionX = Input.GetAxisRaw("Horizontal");
-        float directionY = Input.GetAxisRaw("Vertical");
+        Vector2 moveDirection = playerInput.GetMovementInput();
 
-        if (directionX != 0 || directionY != 0)
+        if (moveDirection.x != 0 || moveDirection.y != 0)
         {
             IsMoving = true;
-            Vector2 moveDirection = new Vector2(directionX, directionY).normalized;
             characterMovement.Move(moveDirection);
         } else
         {

@@ -5,47 +5,51 @@ using UnityEngine.Events;
 
 public class ShootHitscan : MonoBehaviour
 {
+    [SerializeField] private UnityEvent shotFired;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float range = 10f, recoilTime = 0.3f;
     [SerializeField] private int damage = 20;
     [SerializeField] private int knockbackPower = 2;
     private bool recoil = false;
-    [SerializeField] private UnityEvent shotFired;
     private float recoilTimer;
+    [SerializeField] private PlayerInput playerInput;
 
-    void Update()
+    private void OnEnable()
     {
-        // Shoot upon mouse button click.
-        if (!recoil)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Shoot();
-            }
-        }
+        playerInput.onClickEvent += Shoot;
+    }
 
-        // Check if recoil period is over.
+    private void OnDisable()
+    {
+        playerInput.onClickEvent -= Shoot;
+    }
+
+    public void Shoot()
+    {
         if (recoil && Time.time >= recoilTimer)
         {
             recoil = false;
         }
-    }
 
-    private void Shoot()
-    {
-        // Handles shooting logic using raycasts
-        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, range);
-
-        if (hit)
+        // Check if recoil period is over
+        if (!recoil)
         {
-            GameObject hitObject = hit.transform.gameObject;
-            TryHitObject(hitObject);
+            // Shoot raycast and return hit object (or null)
+            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, range);
+
+            // If the ray hit an object, check if the object is Hittable
+            if (hit)
+            {
+                GameObject hitObject = hit.transform.gameObject;
+                TryHitObject(hitObject);
+            }
+
+            // Start recoil timer
+            recoilTimer = Time.time + recoilTime;
+            recoil = true;
+
+            shotFired.Invoke();
         }
-
-        recoilTimer = Time.time + recoilTime;
-        recoil = true;
-
-        shotFired.Invoke();
     }
 
     void TryHitObject(GameObject objectToHit)
