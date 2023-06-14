@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControlMovement : MonoBehaviour
 {
     bool IsMoving
     {
-        set {
+        set
+        {
             isMoving = value;
 
             if (isMoving)
             {
                 rb.drag = moveDrag;
-            } else
+            }
+            else
             {
                 rb.drag = stopDrag;
             }
@@ -41,7 +41,8 @@ public class PlayerControlMovement : MonoBehaviour
         {
             IsMoving = true;
             characterMovement.Move(moveDirection);
-        } else
+        }
+        else
         {
             IsMoving = false;
         }

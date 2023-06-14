@@ -10,8 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7460114798676981816}
   - component: {fileID: 7460114798676981817}
-  - component: {fileID: 7460114798676981814}
   - component: {fileID: 7460114798676981819}
+  - component: {fileID: 511897129}
+  - component: {fileID: 511897130}
+  - component: {fileID: 2678862284431621316}
+  - component: {fileID: 7624395389732147950}
   m_Layer: 0
   m_Name: Ore
   m_TagString: Untagged
@@ -86,22 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7460114798676981814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7460114798676981815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d706b85a1b758a246885dfe0f0745b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 30
-  droppedItem: {fileID: 2000077974376387869, guid: a53c5e5351ec08e46bb51506b16100f4, type: 3}
-  dropCount: 3
-  spread: 0.7
 --- !u!58 &7460114798676981819
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -118,3 +105,86 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.21133333}
   serializedVersion: 2
   m_Radius: 0.7
+--- !u!114 &511897129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460114798676981815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d13e11778b53e2439e0ce115dd698f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 30
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2678862284431621316}
+        m_TargetAssemblyTypeName: Destructible, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7624395389732147950}
+        m_TargetAssemblyTypeName: DropItems, Assembly-CSharp
+        m_MethodName: DropResources
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &511897130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460114798676981815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5f1c04d7e273749a88fb3157d32d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageType: 1
+--- !u!114 &2678862284431621316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460114798676981815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820e9ab991e5c54985c62f2b4b770cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7624395389732147950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460114798676981815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e088624f432a5348a0bc58252b1cc78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropCount: 3
+  spread: 0.7
+  droppedItem: {fileID: 2000077974376387869, guid: a53c5e5351ec08e46bb51506b16100f4, type: 3}

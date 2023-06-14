@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickUpItem : MonoBehaviour
@@ -9,13 +7,13 @@ public class PickUpItem : MonoBehaviour
     [SerializeField] private float speed = 5f;
     private PlayerController pc;
 
-    private void Start() 
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         pc = player.GetComponent<PlayerController>();
     }
 
-    private void Update() 
+    private void Update()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 

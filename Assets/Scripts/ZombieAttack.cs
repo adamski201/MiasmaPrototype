@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class ZombieAttack : MonoBehaviour
 {
     [SerializeField] private int damage = 10;
     [SerializeField] private int knockbackPower = 30;
+    [SerializeField] private DamageTypes damageType;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,7 +16,7 @@ public class ZombieAttack : MonoBehaviour
     {
         if (objectToHit.TryGetComponent(out Hittable hittableObject))
         {
-            hittableObject.TakeHit(damage, knockbackPower, gameObject.transform.position);
+            hittableObject.TakeHit(damage, damageType, knockbackPower, gameObject.transform.position);
         }
     }
 }

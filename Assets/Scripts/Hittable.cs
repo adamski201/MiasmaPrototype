@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 public class Hittable : MonoBehaviour
 {
+    [SerializeField] private DamageTypes damageType;
     private Health health;
     private Knockbackable knockback;
 
@@ -14,13 +13,16 @@ public class Hittable : MonoBehaviour
         knockback = GetComponent<Knockbackable>();
     }
 
-    public void TakeHit(int damage, int knockbackPower, Vector3 knockbackSource)
+    public void TakeHit(int damage, DamageTypes incomingDamageType, int knockbackPower, Vector3 knockbackSource)
     {
-        TakeDamage(damage);
-
-        if (knockback != null)
+        if (incomingDamageType == damageType)
         {
-            knockback.InflictKnockback(knockbackSource, knockbackPower);
+            TakeDamage(damage);
+
+            if (knockback != null)
+            {
+                knockback.InflictKnockback(knockbackSource, knockbackPower);
+            }
         }
     }
 

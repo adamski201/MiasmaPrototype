@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +6,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int startHealth = 100;
     private int health;
     public IntEvent onHealthChange;
+    public UnityEvent onDie;
 
     void Awake()
     {
@@ -21,12 +20,7 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            onDie?.Invoke();
         }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 }

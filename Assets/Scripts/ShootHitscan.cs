@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,12 +5,17 @@ public class ShootHitscan : MonoBehaviour
 {
     [SerializeField] private UnityEvent shotFired;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private float range = 10f, recoilTime = 0.3f;
+    [SerializeField] private float range = 10f;
     [SerializeField] private int damage = 20;
     [SerializeField] private int knockbackPower = 2;
-    private bool recoil = false;
-    private float recoilTimer;
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private DamageTypes damageType;
+    private Recoil recoil;
+
+    private void Awake()
+    {
+        recoil = GetComponent<Recoil>();
+    }
 
     private void OnEnable()
     {
@@ -26,13 +29,9 @@ public class ShootHitscan : MonoBehaviour
 
     public void Shoot()
     {
-        if (recoil && Time.time >= recoilTimer)
-        {
-            recoil = false;
-        }
-
         // Check if recoil period is over
-        if (!recoil)
+        Debug.Log(recoil.InRecoil);
+        if (!recoil.InRecoil)
         {
             // Shoot raycast and return hit object (or null)
             RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, range);
@@ -44,9 +43,8 @@ public class ShootHitscan : MonoBehaviour
                 TryHitObject(hitObject);
             }
 
-            // Start recoil timer
-            recoilTimer = Time.time + recoilTime;
-            recoil = true;
+            // Enable recoil period
+            recoil.InRecoil = true;
 
             shotFired.Invoke();
         }
@@ -56,7 +54,7 @@ public class ShootHitscan : MonoBehaviour
     {
         if (objectToHit.TryGetComponent(out Hittable hittableObject))
         {
-            hittableObject.TakeHit(damage, knockbackPower, gameObject.transform.position);
+            hittableObject.TakeHit(damage, damageType, knockbackPower, gameObject.transform.position);
         }
     }
 }

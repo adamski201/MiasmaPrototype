@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ToolSwitcher : MonoBehaviour
@@ -7,12 +5,12 @@ public class ToolSwitcher : MonoBehaviour
     int selectedTool = 0;
     int lastSelectedTool;
 
-    private void Start() 
+    private void Start()
     {
         SelectTool();
     }
 
-    private void Update() 
+    private void Update()
     {
         CheckKeyPress();
 
@@ -31,7 +29,8 @@ public class ToolSwitcher : MonoBehaviour
             {
                 tool.gameObject.SetActive(true);
                 lastSelectedTool = i;
-            } else 
+            }
+            else
             {
                 tool.gameObject.SetActive(false);
             }
@@ -45,7 +44,7 @@ public class ToolSwitcher : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             selectedTool = 0;
-        } 
+        }
 
         if (Input.GetKeyDown("2"))
         {

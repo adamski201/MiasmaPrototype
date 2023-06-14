@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 23758883}
   - component: {fileID: 23758885}
   - component: {fileID: 23758884}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1167203897}
   - component: {fileID: 1167203899}
   - component: {fileID: 1167203898}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthBarBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 1181754352}
   - component: {fileID: 1181754351}
   - component: {fileID: 1181754350}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1419977924007821226}
   - component: {fileID: 1419977924007821227}
-  - component: {fileID: 1419977924007821229}
   - component: {fileID: 1419977924007821228}
   - component: {fileID: 1419977924007821231}
   - component: {fileID: 4844741967263175023}
@@ -274,6 +273,7 @@ GameObject:
   - component: {fileID: 1033845929}
   - component: {fileID: 1033845930}
   - component: {fileID: 412295559}
+  - component: {fileID: 6001313061722196429}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -338,8 +338,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 0.042452812, b: 0.042452812, a: 1}
+  m_Sprite: {fileID: -1867770626, guid: 9b5e66ba37eaa4e49a0ba66c83b66869, type: 3}
+  m_Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -349,18 +349,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1419977924007821229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419977924007821224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44f5be309c152d64c8e4262833658a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1419977924007821228
 Rigidbody2D:
   serializedVersion: 4
@@ -395,7 +383,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.012035474, y: -0.093201935}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -406,7 +394,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1.0240706, y: 1.4940466}
   m_EdgeRadius: 0
 --- !u!114 &4844741967263175023
 MonoBehaviour:
@@ -436,6 +424,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &107718881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   knockbackPower: 50
+  damageType: 0
 --- !u!114 &107718884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5f1c04d7e273749a88fb3157d32d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageType: 0
 --- !u!114 &1033845930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,3 +505,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 23758884}
+--- !u!114 &6001313061722196429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419977924007821224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820e9ab991e5c54985c62f2b4b770cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
