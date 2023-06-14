@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Health))]
 public class HealthBar : MonoBehaviour
 {
-    private Image healthBar;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        healthBar = GetComponent<Image>();
-    }
+    [SerializeField] private Image healthBar;
 
     public void SetHealth(int health)
     {

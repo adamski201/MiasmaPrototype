@@ -6,17 +6,22 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int startHealth = 100;
     private int health;
-    [SerializeField] private HealthBar healthBar;
+    private HealthBar healthBar;
 
     void Awake()
     {
         health = startHealth;
+        healthBar = GetComponent<HealthBar>();
     }
 
     public void ChangeHealth(int amount)
     {
         health += amount;
-        healthBar.SetHealth(health);
+
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(health);
+        }
 
         if (health <= 0)
         {
