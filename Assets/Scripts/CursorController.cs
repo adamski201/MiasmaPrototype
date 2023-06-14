@@ -12,7 +12,6 @@ public class CursorController : MonoBehaviour
     private bool recoil = false;
     private float frameTimer;
     private float animChangeTimer;
-    private float mouseSens = 100;
 
     void Awake()
     {

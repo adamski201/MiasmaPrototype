@@ -274,7 +274,7 @@ Transform:
   - {fileID: 1074207284}
   - {fileID: 1999346178}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &367079051
 GameObject:
@@ -319,7 +319,7 @@ Transform:
   m_Children:
   - {fileID: 1015114227}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &511897125 stripped
 Transform:
@@ -491,7 +491,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800360237
 GameObject:
@@ -586,7 +586,7 @@ Transform:
   m_Children:
   - {fileID: 2105767445}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &800360241
 Rigidbody2D:
@@ -773,7 +773,7 @@ Transform:
   - {fileID: 1137371310}
   - {fileID: 511897125}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &925044737
 GameObject:
@@ -11160,63 +11160,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1062266280
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1419977924007821224, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_Name
-      value: Zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.4740605
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.2360532
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
 --- !u!1 &1074207280
 GameObject:
   m_ObjectHideFlags: 0
@@ -11285,8 +11228,8 @@ Canvas:
   m_GameObject: {fileID: 1074207280}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -11295,7 +11238,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1074207284
 RectTransform:
@@ -11700,6 +11643,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 92cf2d2187d3aaa4d89c59fea3146dc6, type: 3}
   frameCount: 8
   recoilTime: 0.3
+  player: {fileID: 800360240}
 --- !u!1 &2105767444
 GameObject:
   m_ObjectHideFlags: 0
