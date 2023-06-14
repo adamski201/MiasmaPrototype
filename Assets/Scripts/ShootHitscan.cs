@@ -30,7 +30,6 @@ public class ShootHitscan : MonoBehaviour
     public void Shoot()
     {
         // Check if recoil period is over
-        Debug.Log(recoil.InRecoil);
         if (!recoil.InRecoil)
         {
             // Shoot raycast and return hit object (or null)
