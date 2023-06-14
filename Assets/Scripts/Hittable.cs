@@ -6,19 +6,21 @@ using UnityEngine;
 public class Hittable : MonoBehaviour
 {
     private Health health;
+    private Knockbackable knockback;
 
     private void Awake()
     {
         health = GetComponent<Health>();
+        knockback = GetComponent<Knockbackable>();
     }
 
     public void TakeHit(int damage, int knockbackPower, Vector3 knockbackSource)
     {
         TakeDamage(damage);
 
-        if (TryGetComponent(out Knockbackable knockbackableObject))
+        if (knockback != null)
         {
-            knockbackableObject.InflictKnockback(knockbackSource, knockbackPower);
+            knockback.InflictKnockback(knockbackSource, knockbackPower);
         }
     }
 
