@@ -226,6 +226,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 376194150}
     m_Modifications:
+    - target: {fileID: 107718882, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
+      propertyPath: hit.damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 107718882, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
+      propertyPath: hit.knockbackForce
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1419977924007821224, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
       propertyPath: m_Name
       value: Zombie
@@ -911,6 +919,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55bbb58e87efa841b9f227431b00483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onNumKeyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2105767446}
+        m_TargetAssemblyTypeName: ToolSwitcher, Assembly-CSharp
+        m_MethodName: SwitchTool
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &914716643
 GameObject:
   m_ObjectHideFlags: 0
@@ -15620,7 +15643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1531878734
 Transform:
   m_ObjectHideFlags: 0
@@ -15718,10 +15741,12 @@ MonoBehaviour:
         m_CallState: 2
   firePoint: {fileID: 106698202}
   range: 10
-  damage: 20
-  knockbackPower: 4
   playerInput: {fileID: 800360253}
-  damageType: 0
+  hit:
+    damage: 30
+    damageType: 0
+    knockbackForce: 2
+    knockbackSource: {x: 0, y: 0, z: 0}
 --- !u!114 &1531878737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15746,13 +15771,14 @@ GameObject:
   - component: {fileID: 1566821064}
   - component: {fileID: 1566821065}
   - component: {fileID: 1566821067}
+  - component: {fileID: 1566821068}
   m_Layer: 0
   m_Name: Pickaxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1566821064
 Transform:
   m_ObjectHideFlags: 0
@@ -15838,10 +15864,25 @@ MonoBehaviour:
       m_Calls: []
   firePoint: {fileID: 1737488542}
   range: 1
-  damage: 10
-  knockbackPower: 0
   playerInput: {fileID: 800360253}
-  damageType: 1
+  hit:
+    damage: 10
+    damageType: 1
+    knockbackForce: 0
+    knockbackSource: {x: 0, y: 0, z: 0}
+--- !u!114 &1566821068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566821063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2aa2513998ac224294bad52e043f9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoilTime: 0.3
 --- !u!1 &1652211096
 GameObject:
   m_ObjectHideFlags: 0
