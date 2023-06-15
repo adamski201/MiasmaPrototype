@@ -13,15 +13,15 @@ public class Hittable : MonoBehaviour
         knockback = GetComponent<Knockbackable>();
     }
 
-    public void TakeHit(int damage, DamageTypes incomingDamageType, int knockbackPower, Vector3 knockbackSource)
+    public void TakeHit(Hit hit)
     {
-        if (incomingDamageType == damageType)
+        if (hit.damageType == damageType)
         {
-            TakeDamage(damage);
+            TakeDamage(hit.damage);
 
             if (knockback != null)
             {
-                knockback.InflictKnockback(knockbackSource, knockbackPower);
+                knockback.InflictKnockback(hit.knockbackSource, hit.knockbackForce);
             }
         }
     }

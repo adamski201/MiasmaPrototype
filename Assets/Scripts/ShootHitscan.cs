@@ -6,10 +6,8 @@ public class ShootHitscan : MonoBehaviour
     [SerializeField] private UnityEvent shotFired;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float range = 10f;
-    [SerializeField] private int damage = 20;
-    [SerializeField] private int knockbackPower = 2;
     [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private DamageTypes damageType;
+    [SerializeField] private Hit hit;
     private Recoil recoil;
 
     private void Awake()
@@ -53,7 +51,8 @@ public class ShootHitscan : MonoBehaviour
     {
         if (objectToHit.TryGetComponent(out Hittable hittableObject))
         {
-            hittableObject.TakeHit(damage, damageType, knockbackPower, gameObject.transform.position);
+            hit.knockbackSource = transform.position;
+            hittableObject.TakeHit(hit);
         }
     }
 }
