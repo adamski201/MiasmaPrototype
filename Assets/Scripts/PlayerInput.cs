@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class PlayerInput : MonoBehaviour
 {
     public UnityAction onClickEvent;
+    public IntEvent onNumKeyEvent;
 
     void Update()
     {
         GetMouseClickInput();
+        GetNumberKeysInput();
     }
 
     public Vector2 GetMovementInput()
@@ -23,6 +26,19 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             onClickEvent?.Invoke();
+        }
+    }
+
+    private void GetNumberKeysInput()
+    {
+        if (Input.inputString != "")
+        {
+            int number;
+            bool is_a_number = Int32.TryParse(Input.inputString, out number);
+            if (is_a_number && number >= 0 && number < 10)
+            {
+                onNumKeyEvent?.Invoke(number);
+            }
         }
     }
 }
