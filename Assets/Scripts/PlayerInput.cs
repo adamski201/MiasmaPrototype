@@ -5,12 +5,14 @@ using System;
 public class PlayerInput : MonoBehaviour
 {
     public UnityAction onClickEvent;
+    public UnityEvent onInteractEvent;
     public IntEvent onNumKeyEvent;
 
     void Update()
     {
         GetMouseClickInput();
         GetNumberKeysInput();
+        GetInteractKeyInput();
     }
 
     public Vector2 GetMovementInput()
@@ -39,6 +41,14 @@ public class PlayerInput : MonoBehaviour
             {
                 onNumKeyEvent?.Invoke(number);
             }
+        }
+    }
+
+    private void GetInteractKeyInput()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            onInteractEvent?.Invoke();
         }
     }
 }
