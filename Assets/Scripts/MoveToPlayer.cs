@@ -1,16 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class PickUpItem : MonoBehaviour
+public class MoveToPlayer : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] private float pickUpDistance = 3f;
     [SerializeField] private float speed = 5f;
-    private PlayerController pc;
 
-    private void Start()
+    private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        pc = player.GetComponent<PlayerController>();
+        player = GameObject.FindWithTag("Player");
     }
 
     private void Update()
@@ -23,11 +22,5 @@ public class PickUpItem : MonoBehaviour
         }
 
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-
-        if (distance < 0.1f)
-        {
-            Destroy(gameObject);
-            pc.GainResource(gameObject.name);
-        }
     }
 }

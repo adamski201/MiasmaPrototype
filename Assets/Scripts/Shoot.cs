@@ -12,13 +12,12 @@ public class Shoot : MonoBehaviour
     private void Awake()
     {
         recoil = GetComponent<Recoil>();
-        shootables = GetComponents<IShootable>();
-
     }
 
     private void OnEnable()
     {
         playerInput.onClickEvent += Fire;
+        shootables = GetComponents<IShootable>();
     }
 
     private void OnDisable()
