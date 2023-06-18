@@ -6,12 +6,7 @@ using UnityEngine.Events;
 public class Interaction : MonoBehaviour
 {
     [SerializeField] private float range;
-    private Transform firePoint;
-
-    private void Awake()
-    {
-        firePoint = GetComponentInChildren<Transform>();
-    }
+    [SerializeField] private Transform firePoint;
 
     public void Interact()
     {
