@@ -5,24 +5,23 @@ using UnityEngine.Events;
 
 public class Interaction : MonoBehaviour
 {
-    public UnityAction onInteractEvent;
-    private Transform aim;
     [SerializeField] private float range;
+    private Transform firePoint;
 
     private void Awake()
     {
-        aim = GetComponentInChildren<Transform>();
+        firePoint = GetComponentInChildren<Transform>();
     }
+
     public void Interact()
     {
-        // Shoot raycast and return hit object (or null)
-        RaycastHit2D hit = Physics2D.Raycast(aim.position, aim.right, range);
+        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, range);
+
         if (hit)
         {
-            GameObject hitObject = hit.transform.gameObject;
-            TryInteractWithObject(hitObject);
+            TryInteractWithObject(hit.transform.gameObject);
         }
-        onInteractEvent?.Invoke();
+
     }
 
     private void TryInteractWithObject(GameObject objectToInteractWith)
