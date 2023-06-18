@@ -426,7 +426,19 @@ MonoBehaviour:
         m_CallState: 2
   onDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6001313061722196429}
+        m_TargetAssemblyTypeName: Destructible, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &107718881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,9 +463,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 283b605a3b60b47468f1454b4a7827c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  knockbackPower: 50
-  damageType: 0
+  hit:
+    damage: 10
+    damageType: 0
+    knockbackForce: 30
+    knockbackSource: {x: 0, y: 0, z: 0}
 --- !u!114 &107718884
 MonoBehaviour:
   m_ObjectHideFlags: 0
