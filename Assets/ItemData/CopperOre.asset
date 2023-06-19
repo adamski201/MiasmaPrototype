@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79bae90cd1a1e94392c7f4289c8960f, type: 3}
   m_Name: CopperOre
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
+  itemName: CopperOre
+  icon: {fileID: -1232361666, guid: af141f84ff744ee41af046cd723ce84c, type: 3}
   description: 
