@@ -23,6 +23,7 @@ public class Recoil : MonoBehaviour
             recoil = value;
         }
     }
+
     private float recoilTimer;
     [SerializeField] private float recoilTime = 0.3f;
 }

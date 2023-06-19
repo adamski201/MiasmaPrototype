@@ -5,20 +5,19 @@ using UnityEngine.Events;
 
 public class PickUpItems : MonoBehaviour
 {
-    private TrackResourcesTEMP inventory;
     public UnityAction onPickup;
+    private DynamicInventory inventory;
 
-    private void Start()
+    private void Awake()
     {
-        inventory = GetComponentInChildren<TrackResourcesTEMP>();
+        inventory = GetComponent<DynamicInventory>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.TryGetComponent(out Pickupable item))
         {
-            inventory.AddResource(item.itemName);
-            item.PickUp();
+            inventory.AddItem(item.PickUp());
         }
     }
 }

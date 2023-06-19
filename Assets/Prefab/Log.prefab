@@ -141,7 +141,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  itemName: Log
+  item: {fileID: 11400000, guid: 52c490ca00305d6408c4aa9386b908e7, type: 2}
 --- !u!58 &-5912916728274565454
 CircleCollider2D:
   m_ObjectHideFlags: 0

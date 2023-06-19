@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
-using System.Linq;
 
-public class Shoot : MonoBehaviour
+public class SemiAutoShoot : MonoBehaviour
 {
     [SerializeField] private UnityEvent shotFired;
     [SerializeField] private PlayerInput playerInput;

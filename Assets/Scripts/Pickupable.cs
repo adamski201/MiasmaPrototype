@@ -6,10 +6,11 @@ using UnityEngine.Events;
 public class Pickupable : MonoBehaviour
 {
     public UnityEvent onPickup;
-    [SerializeField] public string itemName;
+    [SerializeField] private ItemData item;
 
-    public void PickUp()
+    public ItemData PickUp()
     {
         onPickup?.Invoke();
+        return item;
     }
 }
