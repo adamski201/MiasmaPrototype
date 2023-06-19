@@ -6,7 +6,7 @@ public class CursorController : MonoBehaviour
     [SerializeField] private int frameCount;
     [SerializeField] private float recoilTime;
     [SerializeField] private Transform player;
-    private int currentFrame;
+    private int currentFrame = 0;
     private bool recoil = false;
     private float frameTimer;
     private float animChangeTimer;
