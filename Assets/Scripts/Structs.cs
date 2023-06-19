@@ -8,3 +8,10 @@ public struct Hit
     public float knockbackForce;
     [HideInInspector] public Vector3 knockbackSource;
 }
+
+[System.Serializable]
+public struct Cost
+{
+    public ItemData item;
+    public int amount;
+}

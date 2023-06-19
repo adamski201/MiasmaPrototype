@@ -25,4 +25,31 @@ public class DynamicInventory : MonoBehaviour
         Debug.Log("No space in the inventory");
         return false;
     }
+
+    public bool FindItem(ItemData itemToFind, int quantity = 1)
+    {
+        int counter = 0;
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].Equals(itemToFind))
+            {
+                counter++;
+            }
+
+            if (counter == quantity)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void RemoveItem(ItemData item, int quantity = 1)
+    {
+        for (int i = 0; i < quantity; ++i)
+        {
+            items.Remove(item);
+        }
+    }
 }
