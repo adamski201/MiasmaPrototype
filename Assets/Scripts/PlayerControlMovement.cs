@@ -2,13 +2,19 @@ using UnityEngine;
 
 public class PlayerControlMovement : MonoBehaviour
 {
+    [SerializeField] private float moveDrag;
+    [SerializeField] private float stopDrag;
+    private CharacterMovement characterMovement;
+    private bool isMoving;
+    private Rigidbody2D rb;
+    private PlayerInput playerInput;
     bool IsMoving
     {
         set
         {
             isMoving = value;
 
-            if (!isMoving && (rb.velocity.x != 0 || rb.velocity.y != 0))
+            if (!isMoving && CheckIfHasVelocity())
             {
                 rb.drag = stopDrag;
             }
@@ -18,13 +24,6 @@ public class PlayerControlMovement : MonoBehaviour
             }
         }
     }
-
-    [SerializeField] float moveDrag;
-    [SerializeField] float stopDrag;
-    private CharacterMovement characterMovement;
-    private bool isMoving;
-    private Rigidbody2D rb;
-    private PlayerInput playerInput;
 
     private void Awake()
     {
@@ -37,7 +36,7 @@ public class PlayerControlMovement : MonoBehaviour
     {
         Vector2 moveDirection = playerInput.GetMovementInput();
 
-        if (moveDirection.x != 0 || moveDirection.y != 0)
+        if (CheckIfMoving(moveDirection))
         {
             IsMoving = true;
             characterMovement.Move(moveDirection);
@@ -46,5 +45,15 @@ public class PlayerControlMovement : MonoBehaviour
         {
             IsMoving = false;
         }
+    }
+
+    private bool CheckIfMoving(Vector2 moveDirection)
+    {
+        return moveDirection.x != 0 || moveDirection.y != 0;
+    }
+
+    private bool CheckIfHasVelocity()
+    {
+        return rb.velocity.x != 0 || rb.velocity.y != 0;
     }
 }
