@@ -16809,7 +16809,7 @@ GameObject:
   - component: {fileID: 1360314731}
   - component: {fileID: 1360314732}
   - component: {fileID: 1360314733}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}

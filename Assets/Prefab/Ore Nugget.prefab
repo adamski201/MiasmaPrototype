@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8295514349479761499}
   - component: {fileID: -1502950038138963882}
   - component: {fileID: 6998579728253440399}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ore Nugget
-  m_TagString: Untagged
+  m_TagString: Items
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
