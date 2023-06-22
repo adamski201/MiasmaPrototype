@@ -8,13 +8,13 @@ public class PlayerControlMovement : MonoBehaviour
         {
             isMoving = value;
 
-            if (isMoving)
+            if (!isMoving && (rb.velocity.x != 0 || rb.velocity.y != 0))
             {
-                rb.drag = moveDrag;
+                rb.drag = stopDrag;
             }
             else
             {
-                rb.drag = stopDrag;
+                rb.drag = moveDrag;
             }
         }
     }
