@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6467888374717593390}
   - component: {fileID: 6309024451233193139}
   - component: {fileID: 215205488951694838}
-  - component: {fileID: 570196154}
-  m_Layer: 0
+  - component: {fileID: 1720199915}
+  m_Layer: 9
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageType: 1
---- !u!58 &570196154
+--- !u!58 &1720199915
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

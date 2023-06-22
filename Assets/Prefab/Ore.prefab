@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 511897130}
   - component: {fileID: 2678862284431621316}
   - component: {fileID: 7624395389732147950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
