@@ -4,7 +4,6 @@ using Pathfinding;
 public class Knockbackable : MonoBehaviour
 {
     private Vector2 knockbackDirection;
-    private AIPath aiPath;
     private Rigidbody2D rb;
 
     private void Awake()

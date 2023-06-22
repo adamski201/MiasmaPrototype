@@ -226,6 +226,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 376194150}
     m_Modifications:
+    - target: {fileID: 107718882, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
+      propertyPath: hit.stunTimer
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 573998852, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
       propertyPath: maxAcceleration
       value: 1000
@@ -256,11 +260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.24625212
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -292,6 +296,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1419977924007821226, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419977924007821228, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1356,6 +1364,7 @@ GameObject:
   - component: {fileID: 800360249}
   - component: {fileID: 800360253}
   - component: {fileID: 800360254}
+  - component: {fileID: 800360255}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1423,7 +1432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800360237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.556, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1644,6 +1653,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 3
   firePoint: {fileID: 2105767445}
+--- !u!114 &800360255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800360237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fff1e144e573c74e8dda4125e439958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &870137390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1974,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 4
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -17015,6 +17036,7 @@ MonoBehaviour:
     damage: 30
     damageType: 0
     knockbackForce: 2
+    stunTimer: 0.1
     knockbackSource: {x: 0, y: 0, z: 0}
 --- !u!1001 &1539389970
 PrefabInstance:
@@ -17207,6 +17229,7 @@ MonoBehaviour:
     damage: 10
     damageType: 1
     knockbackForce: 0
+    stunTimer: 0
     knockbackSource: {x: 0, y: 0, z: 0}
 --- !u!1 &1652211096
 GameObject:
@@ -17336,6 +17359,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 124fd12a82362284a82a01718401ffcf, type: 3}
+--- !u!1 &1843844629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1419977924007821224, guid: fe8efaaf543c8284e9c0e8d8d97642af, type: 3}
+  m_PrefabInstance: {fileID: 63471366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1843844643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843844629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fff1e144e573c74e8dda4125e439958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1910938424
 GameObject:
   m_ObjectHideFlags: 0
