@@ -1,11 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
-public class PlayerControlMovement : MonoBehaviour
+public class PlayerControlMovement : MonoBehaviour, IStunnable
 {
     [SerializeField] private float moveDrag;
     [SerializeField] private float stopDrag;
     private CharacterMovement characterMovement;
     private bool isMoving;
+    private bool canMove = true;
     private Rigidbody2D rb;
     private PlayerInput playerInput;
     bool IsMoving
@@ -33,17 +35,20 @@ public class PlayerControlMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        Vector2 moveDirection = playerInput.GetMovementInput();
+    {   
+        if (canMove)
+        {
+            Vector2 moveDirection = playerInput.GetMovementInput();
 
-        if (CheckIfMoving(moveDirection))
-        {
-            IsMoving = true;
-            characterMovement.Move(moveDirection);
-        }
-        else
-        {
-            IsMoving = false;
+            if (CheckIfMoving(moveDirection))
+            {
+                IsMoving = true;
+                characterMovement.Move(moveDirection);
+            }
+            else
+            {
+                IsMoving = false;
+            }
         }
     }
 
@@ -55,5 +60,19 @@ public class PlayerControlMovement : MonoBehaviour
     private bool CheckIfHasVelocity()
     {
         return rb.velocity.x != 0 || rb.velocity.y != 0;
+    }
+
+    public void StartHaltMovementCoroutine(float duration)
+    {
+        StartCoroutine("HaltMovement", duration);
+    }
+
+    private IEnumerator HaltMovement(float duration)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(duration);
+        canMove = true;
+
+        yield return null;
     }
 }
