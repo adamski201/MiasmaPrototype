@@ -10,11 +10,6 @@ public class CollisionAttack : MonoBehaviour
         TryHitObject(collidedObject);
     }
 
-    void OnCollisionExit2D(Collision2D collisionInfo)
-    {
-        print("Collision Out: " + gameObject.name);
-    }
-
     void TryHitObject(GameObject objectToHit)
     {
         if (objectToHit.TryGetComponent(out Hittable hittableObject))

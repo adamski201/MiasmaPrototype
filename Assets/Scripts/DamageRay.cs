@@ -5,17 +5,14 @@ using UnityEngine.Events;
 
 public class DamageRay : MonoBehaviour, IShootable
 {
-    private Transform firePoint;
+    [SerializeField] private Transform firePoint;
     [SerializeField] private float range;
     [SerializeField] private Hit hit;
 
-    private void Awake()
-    {
-        firePoint = GetComponent<Transform>();
-    }
     public void Launch()
     {
         RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, range);
+        Debug.DrawRay(firePoint.position, firePoint.right * range, Color.yellow, 0.1f);
 
         if (hit)
         {
