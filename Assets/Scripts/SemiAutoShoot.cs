@@ -4,14 +4,11 @@ using UnityEngine.Events;
 public class SemiAutoShoot : MonoBehaviour
 {
     [SerializeField] private UnityEvent shotFired;
+    [SerializeField] private FloatEvent shotFiredFloat;
+    [SerializeField] private float recoilTimer;
     [SerializeField] private PlayerInput playerInput;
-    private Recoil recoil;
     private IShootable[] shootables;
-
-    private void Awake()
-    {
-        recoil = GetComponent<Recoil>();
-    }
+    private float nextShoot;
 
     private void OnEnable()
     {
@@ -27,14 +24,17 @@ public class SemiAutoShoot : MonoBehaviour
     public void Fire()
     {
         // Check if recoil period is over
-        if (!recoil.InRecoil)
+        if (Time.time > nextShoot)
         {
             shotFired.Invoke();
+            shotFiredFloat.Invoke(recoilTimer);
 
             foreach (IShootable shootable in shootables)
             {
                 shootable.Launch();
             }
+
+            nextShoot = Time.time + recoilTimer;
         }
     }
 }
