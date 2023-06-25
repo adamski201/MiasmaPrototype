@@ -29,6 +29,11 @@ public class MovePositionPathfinding : MonoBehaviour, IStunnable
         aiPath.maxSpeed = speed;
     }
 
+    public Vector2 GetMovementDirection()
+    {
+        return (aiPath.steeringTarget - transform.position).normalized;
+    }
+
     public void StartHaltMovementCoroutine(float duration)
     {
         StartCoroutine("HaltMovement", duration);
