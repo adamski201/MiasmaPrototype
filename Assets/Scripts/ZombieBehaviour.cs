@@ -10,6 +10,7 @@ public class ZombieBehaviour : MonoBehaviour
     private Vector2 waypoint;
     private MovePositionPathfinding pathfinding;
     private bool idling = false;
+    private bool timedOut = false;
 
     private void Awake()
     {
@@ -25,6 +26,12 @@ public class ZombieBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (timedOut)
+        {
+            Debug.LogError("Potential Infinite Loop: Zombie roaming destination could not be found.");
+            return;
+        }
+
         if (!idling && Vector2.Distance(transform.position, waypoint) < 1)
         {
             idling = true;
@@ -32,16 +39,27 @@ public class ZombieBehaviour : MonoBehaviour
         }
     }
 
-    public Vector2 CreateRandomDestination()
+    private Vector2 CreateRandomDestination()
     {
         Vector2 currentPosition = transform.position;
         float newX = Random.Range(-maxDistance, maxDistance);
         float newY = Random.Range(-maxDistance, maxDistance);
         Vector2 destination = new Vector2(newX, newY) + currentPosition;
 
-        if (DestinationBlocked(currentPosition, destination))
+        int timeoutCounter = 0;
+        while (DestinationBlocked(transform.position, destination))
         {
-            return CreateRandomDestination();
+            // Prevents a potential infinite loop if a destination cannot be found
+            timeoutCounter++;
+            if (timeoutCounter > 25)
+            {
+                timedOut = true;
+                return currentPosition;
+            }
+
+            newX = Random.Range(-maxDistance, maxDistance);
+            newY = Random.Range(-maxDistance, maxDistance);
+            destination = new Vector2(newX, newY) + currentPosition;
         }
 
         return destination;
@@ -53,6 +71,7 @@ public class ZombieBehaviour : MonoBehaviour
         yield return new WaitForSeconds(idleTimer);
 
         waypoint = CreateRandomDestination();
+
         pathfinding.SetMovementPosition(waypoint);
         idling = false;
         yield return null;
@@ -62,13 +81,14 @@ public class ZombieBehaviour : MonoBehaviour
     {
         float rayDistance = Vector2.Distance(position, destination);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, (destination-position).normalized, rayDistance);
-        Debug.DrawRay(transform.position, (destination - position).normalized * rayDistance, Color.yellow, 0.4f);
+        //Debug.DrawRay(transform.position, (destination - position).normalized * rayDistance, Color.yellow, 0.4f);
+        
         if (hit)
         {
-            Debug.Log(hit.transform.name);
+            return true;
         }
 
-        if (hit) return true; else return false;
+        return false;
     }
 
 }
