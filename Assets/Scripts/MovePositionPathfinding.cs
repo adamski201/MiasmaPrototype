@@ -14,14 +14,19 @@ public class MovePositionPathfinding : MonoBehaviour, IStunnable
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
         SetMovementPosition(player.transform.position);
-    }
+    }*/
 
     public void SetMovementPosition(Vector3 movePosition)
     {
         aiPath.destination = movePosition;
+    }
+
+    public void SetSpeed(float speed)
+    {
+        aiPath.maxSpeed = speed;
     }
 
     public void StartHaltMovementCoroutine(float duration)
