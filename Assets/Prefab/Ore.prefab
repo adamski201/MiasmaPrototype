@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 511897130}
   - component: {fileID: 2678862284431621316}
   - component: {fileID: 7624395389732147950}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Ore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5f1c04d7e273749a88fb3157d32d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageType: 1
+  receivableDamageType: 4
 --- !u!114 &2678862284431621316
 MonoBehaviour:
   m_ObjectHideFlags: 0
