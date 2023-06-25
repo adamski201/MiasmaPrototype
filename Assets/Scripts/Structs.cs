@@ -4,7 +4,7 @@ using UnityEngine;
 public struct Hit
 {
     public int damage;
-    public DamageTypes damageType;
+    public DamageEntityTypes entityToDamage;
     public float knockbackForce;
     public float stunTimer;
     [HideInInspector] public Vector3 knockbackSource;

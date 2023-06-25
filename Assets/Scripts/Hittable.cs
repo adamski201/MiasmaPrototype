@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Hittable : MonoBehaviour
 {
-    [SerializeField] private DamageTypes damageType;
+    [SerializeField] private DamageEntityTypes receivableDamageType;
     private Health health;
     private Knockbackable knockback;
     private Stunnable stun;
@@ -17,7 +17,7 @@ public class Hittable : MonoBehaviour
 
     public void TakeHit(Hit hit)
     {
-        if (hit.damageType == damageType)
+        if (hit.entityToDamage.Equals(receivableDamageType))
         {
             TakeDamage(hit.damage);
 

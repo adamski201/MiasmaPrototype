@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 573998852}
   - component: {fileID: 573998853}
   - component: {fileID: 573998854}
+  - component: {fileID: 1843844643}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -455,8 +456,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit:
     damage: 10
-    damageType: 0
+    entityToDamage: 1
     knockbackForce: 30
+    stunTimer: 0.25
     knockbackSource: {x: 0, y: 0, z: 0}
 --- !u!114 &1033845929
 MonoBehaviour:
@@ -470,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5f1c04d7e273749a88fb3157d32d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageType: 0
+  receivableDamageType: 2
 --- !u!114 &1033845930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,14 +555,14 @@ MonoBehaviour:
     maximumInterval: 2
     visualizeSensitivity: 1
   targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
+  maxAcceleration: 1000
   rotationSpeed: 360
-  slowdownDistance: 2
-  pickNextWaypointDist: 3
+  slowdownDistance: 0
+  pickNextWaypointDist: 1
   endReachedDistance: 1
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &573998853
 MonoBehaviour:
@@ -605,3 +607,15 @@ MonoBehaviour:
   version: 1
   unwrap: 1
   splitAtEveryPortal: 0
+--- !u!114 &1843844643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419977924007821224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fff1e144e573c74e8dda4125e439958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

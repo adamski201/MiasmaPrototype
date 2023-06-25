@@ -1,7 +1,8 @@
 [System.Flags]
-public enum DamageTypes
+public enum DamageEntityTypes
 {
-    Physical = 0,
-    Ore = 1,
-    Wood = 2
+    Player = 1,
+    Enemy = 2,
+    Ore = 4,
+    Wood = 8
 }
