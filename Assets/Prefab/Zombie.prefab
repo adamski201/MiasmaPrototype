@@ -277,9 +277,9 @@ GameObject:
   - component: {fileID: 573998853}
   - component: {fileID: 573998854}
   - component: {fileID: 1843844643}
-  - component: {fileID: 1843844673}
   - component: {fileID: 1843844674}
   - component: {fileID: 1843844675}
+  - component: {fileID: 450607145}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -466,6 +466,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receivableDamageType: 2
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 450607145}
+        m_TargetAssemblyTypeName: EnemyStateController, Assembly-CSharp
+        m_MethodName: TriggerOnHurt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1033845930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,22 +627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fff1e144e573c74e8dda4125e439958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1843844673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419977924007821224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df01bd3ff1555cc4fbc27012ba96c101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roamSpeed: 0.5
-  maxDistance: 3
-  minWaitTime: 0.5
-  maxWaitTime: 4.5
 --- !u!95 &1843844674
 Animator:
   serializedVersion: 4
@@ -658,5 +657,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eae1b091315428e43a055df1e8a3e60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &450607145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419977924007821224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba9bac65613bc342a5691f80c7debf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -81,7 +81,7 @@ public class ZombieBehaviour : MonoBehaviour
     {
         float rayDistance = Vector2.Distance(position, destination);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, (destination-position).normalized, rayDistance);
-        //Debug.DrawRay(transform.position, (destination - position).normalized * rayDistance, Color.yellow, 0.4f);
+        //.DrawRay(transform.position, (destination - position).normalized * rayDistance, Color.yellow, 0.4f);
         
         if (hit)
         {

@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Health))]
 public class Hittable : MonoBehaviour
 {
     [SerializeField] private DamageEntityTypes receivableDamageType;
+    public UnityEvent onHit;
     private Health health;
     private Knockbackable knockback;
     private Stunnable stun;
@@ -20,6 +22,7 @@ public class Hittable : MonoBehaviour
         if (hit.entityToDamage.Equals(receivableDamageType))
         {
             TakeDamage(hit.damage);
+            onHit?.Invoke();
 
             if (knockback != null)
             {

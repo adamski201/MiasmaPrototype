@@ -17,7 +17,6 @@ public class WalkAnimation : MonoBehaviour
     void Update()
     {
         Vector2 movementDirection = movementController.GetMovementDirection();
-        Debug.Log(movementDirection);
         animator.SetFloat("Horizontal", movementDirection.x);
         animator.SetFloat("Vertical", movementDirection.y);
     }
