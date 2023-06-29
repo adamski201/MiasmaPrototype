@@ -13,6 +13,7 @@ public class RoamState : IState
     private bool timedOut = false;
     private Vector2 currentPosition;
     private float idleTimer;
+    private float waypointRange = 1f;
 
     public void OnEnter(EnemyStateController sc, MovePositionPathfinding pathfinder)
     {
@@ -50,7 +51,7 @@ public class RoamState : IState
         // When entity reaches its destination, it idles for a random duration then finds a new destination
         if (!idling)
         {
-            if (Vector2.Distance(currentPosition, waypoint) < 0.5f)
+            if (Vector2.Distance(currentPosition, waypoint) < waypointRange)
             {
                 idling = true;
                 float idleTime = Random.Range(minWaitTime, maxWaitTime);
