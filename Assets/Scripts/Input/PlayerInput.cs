@@ -23,6 +23,13 @@ public class PlayerInput : MonoBehaviour
         return new Vector2(directionX, directionY).normalized;
     }
 
+    public Vector2 GetMousePosition()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+        return worldPosition;
+    }
+
     private void GetMouseClickInput()
     {
         if (Input.GetMouseButtonDown(0))
