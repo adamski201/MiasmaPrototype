@@ -13,7 +13,7 @@ public class PlayerAnimationController : MonoBehaviour
     private Vector2 movementDirectionCached;
 
     private readonly float attackAnimationTimer = 0.8f;
-    private bool canFlip = true;
+    private bool inAttack = false;
     private float flipTimer = 0f;
     private Vector3 aimDirection;
 
@@ -43,9 +43,9 @@ public class PlayerAnimationController : MonoBehaviour
         Vector3 mousePosition = input.GetMousePosition();
         aimDirection = (mousePosition - transform.position).normalized;
 
-        if (!canFlip && Time.time >= flipTimer)
+        if (inAttack && Time.time >= flipTimer)
         {
-            canFlip = true;
+            inAttack = false;
         }
     }
 
@@ -75,7 +75,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void HandleSpriteFlipping()
     {
-        if (canFlip)
+        if (!inAttack)
         {
             if (movementDirection.x < 0)
             {
@@ -90,22 +90,26 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void TriggerAttackAnimation()
     {
-        // Get mouse position and set blend tree values to the direction of cursor
-        animator.SetFloat("MouseHorizontal", aimDirection.x);
-        animator.SetFloat("MouseVertical", aimDirection.y);
-
-        flipTimer = Time.time + attackAnimationTimer;
-        canFlip = false;
-
-        if (aimDirection.x > 0f)
+        if (!inAttack)
         {
-            sprite.flipX = false;
-        } else if (aimDirection.x < 0f)
-        {
-            sprite.flipX = true;
+            // Get mouse position and set blend tree values to the direction of cursor
+            animator.SetFloat("MouseHorizontal", aimDirection.x);
+            animator.SetFloat("MouseVertical", aimDirection.y);
+
+            flipTimer = Time.time + attackAnimationTimer;
+            inAttack = true;
+
+            if (aimDirection.x > 0f)
+            {
+                sprite.flipX = false;
+            }
+            else if (aimDirection.x < 0f)
+            {
+                sprite.flipX = true;
+            }
+
+            animator.SetTrigger("Attack");
+            playerMovement.StartHaltMovementCoroutine(attackAnimationTimer);
         }
-
-        animator.SetTrigger("Attack");
-        playerMovement.StartHaltMovementCoroutine(attackAnimationTimer);
     }
 }

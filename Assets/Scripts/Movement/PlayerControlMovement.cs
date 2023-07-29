@@ -18,11 +18,11 @@ public class PlayerControlMovement : MonoBehaviour, IStunnable
 
             if (!isMoving && CheckIfHasVelocity())
             {
-                rb.drag = stopDrag;
+                //rb.drag = stopDrag;
             }
             else
             {
-                rb.drag = moveDrag;
+                //rb.drag = moveDrag;
             }
         }
     }

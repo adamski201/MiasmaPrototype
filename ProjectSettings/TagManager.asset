@@ -18,8 +18,8 @@ TagManager:
   - LowWall
   - Wall
   - Item
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 
