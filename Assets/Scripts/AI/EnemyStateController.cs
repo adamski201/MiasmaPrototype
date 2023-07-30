@@ -5,6 +5,7 @@ public class EnemyStateController : MonoBehaviour
     IState currentState;
     public RoamState roamState = new();
     public ChaseState chaseState = new();
+    public AttackState attackState = new();
     private MovePositionPathfinding pathfinding;
     private GameObject player;
 

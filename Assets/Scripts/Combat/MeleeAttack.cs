@@ -15,9 +15,8 @@ public class MeleeAttack : MonoBehaviour
     private float lockOnGap = 1.3f;
     private float lockOnPower = 10f;
     private float attackTimer = 0f;
-    private float attackDuration = 0.5f;
+    private float attackDuration = 0.8f;
     private Vector2 lockOnDirection;
-    
 
     private void OnEnable()
     {
@@ -31,12 +30,15 @@ public class MeleeAttack : MonoBehaviour
 
     private void Swing()
     {
-        if (enemyInRange && Time.time >= attackTimer)
+        if (Time.time >= attackTimer)
         {
-            StartCoroutine(Attack());
+            if (enemyInRange)
+            {
+                StartCoroutine(Attack());
+                lockingOn = true;
+            }
 
             attackTimer = Time.time + attackDuration;
-            lockingOn = true;
         }
     }
 
@@ -91,6 +93,7 @@ public class MeleeAttack : MonoBehaviour
         Debug.Log("Hit Enemy");
         if (enemyTransform.gameObject.TryGetComponent<Hittable>(out Hittable hittableObject))
         {
+            hit.knockbackSource = transform.position;
             hittableObject.TakeHit(hit);
         }
     }

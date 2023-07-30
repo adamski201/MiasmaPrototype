@@ -267,7 +267,6 @@ GameObject:
   - component: {fileID: 1419977924007821228}
   - component: {fileID: 4267059159834564666}
   - component: {fileID: 4844741967263175023}
-  - component: {fileID: 107718882}
   - component: {fileID: 1033845929}
   - component: {fileID: 1033845930}
   - component: {fileID: 412295559}
@@ -435,24 +434,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &107718882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419977924007821224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 283b605a3b60b47468f1454b4a7827c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hit:
-    damage: 10
-    entityToDamage: 1
-    knockbackForce: 100
-    stunTimer: 0.25
-    knockbackSource: {x: 0, y: 0, z: 0}
 --- !u!114 &1033845929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +527,7 @@ MonoBehaviour:
   radius: 0.6
   height: 2
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 1
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
@@ -563,7 +544,7 @@ MonoBehaviour:
     maximumInterval: 2
     visualizeSensitivity: 1
   targetCompatibility: {fileID: 0}
-  maxAcceleration: 7
+  maxAcceleration: 3
   rotationSpeed: 360
   slowdownDistance: 0.2
   pickNextWaypointDist: 2

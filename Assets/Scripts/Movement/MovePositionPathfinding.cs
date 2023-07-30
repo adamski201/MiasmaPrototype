@@ -34,8 +34,11 @@ public class MovePositionPathfinding : MonoBehaviour, IStunnable
 
     private IEnumerator HaltMovement(float duration)
     {
+        float speed = aiPath.maxSpeed;
+        aiPath.maxSpeed = 0;
         aiPath.canMove = false;
         yield return new WaitForSeconds(duration);
+        aiPath.maxSpeed = speed;
         aiPath.canMove = true;
 
         yield return null;
